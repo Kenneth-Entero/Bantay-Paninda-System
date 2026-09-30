@@ -51,7 +51,7 @@ public class BantayPaninda{
 
         while (isRunning) {
             System.out.println("\n==============================================");
-            System.out.println("BANTAY-PANINDA");
+            System.out.println("BANTAY PANINDA SYSTEM");
             System.out.println("==============================================");
             System.out.println("1. Add Product");
             System.out.println("2. Purchase Item / Deduct Stock");
@@ -187,8 +187,8 @@ public class BantayPaninda{
                     break;
 
                 case 6:
-                    // Exit application
-                    System.out.println("Exiting Store Inventory System.");
+                    // Exit Bantay Paninda System
+                    System.out.println("Exiting Bantay Paninda System.");
                     isRunning = false;
                     break;
 
