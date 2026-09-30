@@ -15,12 +15,11 @@ class Product {
 
     /*
      * Constructor to initialize product fields
-     * and increment the static totalProductTypes counter
      */
-    Product(String name, double price, int stock) {
-        this.name = name;
-        this.price = price;
-        this.stock = stock;
+    Product(String pName, double pPrice, int pStock) {
+        name = pName;
+        price = pPrice;
+        stock = pStock;
         Product.totalProductTypes++;
     }
 
@@ -52,7 +51,7 @@ public class StoreInventorySystem {
 
         while (isRunning) {
             System.out.println("\n==============================================");
-            System.out.println("BANTAY-PANINDA");
+            System.out.println("   STORE INVENTORY & STOCK ALERT SYSTEM       ");
             System.out.println("==============================================");
             System.out.println("1. Add Product");
             System.out.println("2. Purchase Item / Deduct Stock");
@@ -65,6 +64,7 @@ public class StoreInventorySystem {
             int choice = scanner.nextInt();
             scanner.nextLine(); // Clear input buffer
 
+            // Switch statement for menu selection
             switch (choice) {
 
                 case 1:
@@ -77,6 +77,7 @@ public class StoreInventorySystem {
                     System.out.print("Enter Stock Quantity: ");
                     int stock = scanner.nextInt();
 
+                    // Append new product to list
                     inventory.add(new Product(name, price, stock));
                     
                     System.out.println("SUCCESS: '" + name + "' added to inventory.");
@@ -90,6 +91,7 @@ public class StoreInventorySystem {
                     String buyName = scanner.nextLine();
                     boolean itemFoundToBuy = false;
 
+                    // Search inventory list
                     for (int i = 0; i < inventory.size(); i++) {
                         Product p = inventory.get(i);
 
@@ -98,10 +100,12 @@ public class StoreInventorySystem {
                             System.out.print("Enter Quantity to Purchase: ");
                             int qty = scanner.nextInt();
 
+                            // Validate stock availability
                             if (qty <= p.stock) {
                                 p.stock -= qty;
                                 System.out.println("SUCCESS: Transaction complete. Remaining stock for " + p.name + ": " + p.stock);
 
+                                // Low stock checking
                                 if (p.stock <= LOW_STOCK_THRESHOLD) {
                                     System.out.println("WARNING: Low stock detected for '" + p.name + "' (" + p.stock + " remaining). Restock immediately.");
                                 }
