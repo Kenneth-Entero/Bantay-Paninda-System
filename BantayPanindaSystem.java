@@ -32,7 +32,7 @@ class Product {
 /**
  * Main application class for the Store Inventory System.
  */
-public class BantayPaninda{
+public class BantayPanindaSystem{
 
     // Threshold limit for low-stock warning
     private static final int LOW_STOCK_THRESHOLD = 5;
