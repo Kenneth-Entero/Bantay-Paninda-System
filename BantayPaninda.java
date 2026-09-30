@@ -32,7 +32,7 @@ class Product {
 /**
  * Main application class for the Store Inventory System.
  */
-public class StoreInventorySystem {
+public class BantayPaninda{
 
     // Threshold limit for low-stock warning
     private static final int LOW_STOCK_THRESHOLD = 5;
@@ -51,7 +51,7 @@ public class StoreInventorySystem {
 
         while (isRunning) {
             System.out.println("\n==============================================");
-            System.out.println("   STORE INVENTORY & STOCK ALERT SYSTEM       ");
+            System.out.println("BANTAY-PANINDA");
             System.out.println("==============================================");
             System.out.println("1. Add Product");
             System.out.println("2. Purchase Item / Deduct Stock");
