@@ -57,9 +57,8 @@ public class BantayPanindaSystem{
             System.out.println("2. Purchase Item / Deduct Stock");
             System.out.println("3. Remove Product");
             System.out.println("4. View Inventory Status & Alerts");
-            System.out.println("5. Check Product Availability");
-            System.out.println("6. Exit");
-            System.out.print("Select an option (1-6): ");
+            System.out.println("5. Exit");
+            System.out.print("Select an option (1-5): ");
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // Clear input buffer
@@ -166,27 +165,6 @@ public class BantayPanindaSystem{
                     break;
 
                 case 5:
-                    // Check product availability
-                    System.out.println("\n--- CHECK PRODUCT AVAILABILITY ---");
-                    System.out.print("Enter Product Name to Check: ");
-                    String checkName = scanner.nextLine();
-                    
-                    boolean exists = false;
-                    for (int i = 0; i < inventory.size(); i++) {
-                        if (inventory.get(i).name.equalsIgnoreCase(checkName)) {
-                            exists = true;
-                            break;
-                        }
-                    }
-
-                    if (exists) {
-                        System.out.println("STATUS: Product '" + checkName + "' is available in stock.");
-                    } else {
-                        System.out.println("STATUS: Product '" + checkName + "' is NOT available in inventory.");
-                    }
-                    break;
-
-                case 6:
                     // Exit Bantay Paninda System
                     System.out.println("Exiting Bantay Paninda System.");
                     isRunning = false;
