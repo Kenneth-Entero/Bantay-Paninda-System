@@ -25,7 +25,7 @@ class Product {
 
     // Method to display product details
     void displayDetails() {
-        System.out.println("Product: " + name + " | Price: $" + price + " | Stock: " + stock);
+        System.out.println("Product: " + name + " | Price: ₱" + price + " | Stock: " + stock);
     }
 }
 
