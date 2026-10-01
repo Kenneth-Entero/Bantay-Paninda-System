@@ -87,14 +87,14 @@ public class BantayPanindaSystem{
                     // Purchase item and deduct stock
                     System.out.println("\n--- PURCHASE / DEDUCT STOCK ---");
                     System.out.print("Enter Product Name to Purchase: ");
-                    String buyName = scanner.nextLine();
+                    String deduct = scanner.nextLine();
                     boolean itemFoundToBuy = false;
 
                     // Search inventory list
                     for (int i = 0; i < inventory.size(); i++) {
                         Product p = inventory.get(i);
 
-                        if (p.name.equalsIgnoreCase(buyName)) {
+                        if (p.name.equalsIgnoreCase(deduct)) {
                             itemFoundToBuy = true;
                             System.out.print("Enter Quantity to Purchase: ");
                             int qty = scanner.nextInt();
