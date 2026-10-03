@@ -32,7 +32,7 @@ class Product {
 /**
  * Main application class for the Store Inventory System.
  */
-public class BantayPanindaSystem{
+public class BantayPanindaSystem {
 
     // Threshold limit for low-stock warning
     private static final int LOW_STOCK_THRESHOLD = 5;
@@ -54,7 +54,7 @@ public class BantayPanindaSystem{
         System.out.println("==============================================");
 
         while (isRunning) {
-            System.out.println("============= MENU ==================");
+            System.out.println("\n============= MENU ==================");
             System.out.println("1. Add Product");
             System.out.println("2. Deduct Stock");
             System.out.println("3. Remove Product");
@@ -69,42 +69,42 @@ public class BantayPanindaSystem{
             switch (choice) {
 
                 case 1:
-                    // Add new product entry
+                    // Add new product entry to the store
                     System.out.println("\n--- ADD NEW PRODUCT ---");
                     System.out.print("Enter Product Name: ");
-                    String name = scanner.nextLine();
+                    String newProductName = scanner.nextLine();
                     System.out.print("Enter Price: ");
-                    double price = scanner.nextDouble();
+                    double productPrice = scanner.nextDouble();
                     System.out.print("Enter Stock Quantity: ");
-                    int stock = scanner.nextInt();
+                    int initialStock = scanner.nextInt();
 
                     // Append new product to list
-                    inventory.add(new Product(name, price, stock));
+                    inventory.add(new Product(newProductName, productPrice, initialStock));
                     
-                    System.out.println("SUCCESS: '" + name + "' added to inventory.");
+                    System.out.println("SUCCESS: '" + newProductName + "' added to inventory.");
                     System.out.println("Total Registered Product Types: " + Product.totalProductTypes);
                     break;
 
                 case 2:
-                    // Purchase item and deduct stock
+                    // Deduct stock for a purchased item
                     System.out.println("\n--- DEDUCT STOCK ---");
                     System.out.print("Enter Product Name to Deduct: ");
-                    String deduct = scanner.nextLine();
-                    boolean itemFoundToBuy = false;
+                    String productToDeduct = scanner.nextLine();
+                    boolean itemFoundToDeduct = false;
 
                     // Search inventory list
                     for (int i = 0; i < inventory.size(); i++) {
                         Product p = inventory.get(i);
 
-                        if (p.name.equalsIgnoreCase(deduct)) {
-                            itemFoundToBuy = true;
+                        if (p.name.equalsIgnoreCase(productToDeduct)) {
+                            itemFoundToDeduct = true;
                             System.out.print("Enter Quantity to Deduct: ");
-                            int qty = scanner.nextInt();
+                            int quantityToDeduct = scanner.nextInt();
 
                             // Validate stock availability
-                            if (qty <= p.stock) {
-                                p.stock -= qty;
-                                System.out.println("SUCCESS: Transaction complete. Remaining stock for " + p.name + ": " + p.stock);
+                            if (quantityToDeduct <= p.stock) {
+                                p.stock -= quantityToDeduct;
+                                System.out.println("SUCCESS: Stock deducted. Remaining stock for " + p.name + ": " + p.stock);
 
                                 // Low stock checking
                                 if (p.stock <= LOW_STOCK_THRESHOLD) {
@@ -117,32 +117,32 @@ public class BantayPanindaSystem{
                         }
                     }
 
-                    if (!itemFoundToBuy) {
-                        System.out.println("ERROR: Product '" + buyName + "' not found.");
+                    if (!itemFoundToDeduct) {
+                        System.out.println("ERROR: Product '" + productToDeduct + "' not found in inventory.");
                     }
                     break;
 
                 case 3:
-                    // Remove existing product record
+                    // Remove existing product record from the store
                     System.out.println("\n--- REMOVE PRODUCT ---");
                     System.out.print("Enter Product Name to Remove: ");
-                    String removeName = scanner.nextLine();
+                    String productToRemove = scanner.nextLine();
                     boolean itemFoundToRemove = false;
 
                     for (int i = 0; i < inventory.size(); i++) {
-                        if (inventory.get(i).name.equalsIgnoreCase(removeName)) {
+                        if (inventory.get(i).name.equalsIgnoreCase(productToRemove)) {
                             inventory.remove(i);
                             itemFoundToRemove = true;
                             
                             Product.totalProductTypes--; 
                             
-                            System.out.println("SUCCESS: Product '" + removeName + "' removed from inventory.");
+                            System.out.println("SUCCESS: Product '" + productToRemove + "' removed from inventory.");
                             break;
                         }
                     }
 
                     if (!itemFoundToRemove) {
-                        System.out.println("ERROR: Product '" + removeName + "' not found in inventory.");
+                        System.out.println("ERROR: Product '" + productToRemove + "' not found in inventory.");
                     }
                     break;
 
@@ -181,4 +181,3 @@ public class BantayPanindaSystem{
         scanner.close();
     }
 }
-
