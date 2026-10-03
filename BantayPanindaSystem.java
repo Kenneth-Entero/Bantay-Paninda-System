@@ -86,7 +86,7 @@ public class BantayPanindaSystem {
                     break;
 
                 case 2:
-                    // Deduct stock for a purchased item
+                    // Deduct stock from the inventory
                     System.out.println("\n--- DEDUCT STOCK ---");
                     System.out.print("Enter Product Name to Deduct: ");
                     String productToDeduct = scanner.nextLine();
