@@ -49,12 +49,14 @@ public class BantayPanindaSystem{
 
         boolean isRunning = true;
 
+        System.out.println("==============================================");
+        System.out.println("===== WELCOME TO BANTAY PANINDA SYSTEM! =======");
+        System.out.println("==============================================");
+
         while (isRunning) {
-            System.out.println("\n==============================================");
-            System.out.println("BANTAY PANINDA SYSTEM");
-            System.out.println("==============================================");
+            System.out.println("============= MENU ==================");
             System.out.println("1. Add Product");
-            System.out.println("2. Purchase Item / Deduct Stock");
+            System.out.println("2. Deduct Stock");
             System.out.println("3. Remove Product");
             System.out.println("4. View Inventory Status & Alerts");
             System.out.println("5. Exit");
@@ -85,8 +87,8 @@ public class BantayPanindaSystem{
 
                 case 2:
                     // Purchase item and deduct stock
-                    System.out.println("\n--- PURCHASE / DEDUCT STOCK ---");
-                    System.out.print("Enter Product Name to Purchase: ");
+                    System.out.println("\n--- DEDUCT STOCK ---");
+                    System.out.print("Enter Product Name to Deduct: ");
                     String deduct = scanner.nextLine();
                     boolean itemFoundToBuy = false;
 
@@ -96,7 +98,7 @@ public class BantayPanindaSystem{
 
                         if (p.name.equalsIgnoreCase(deduct)) {
                             itemFoundToBuy = true;
-                            System.out.print("Enter Quantity to Purchase: ");
+                            System.out.print("Enter Quantity to Deduct: ");
                             int qty = scanner.nextInt();
 
                             // Validate stock availability
@@ -171,7 +173,7 @@ public class BantayPanindaSystem{
                     break;
 
                 default:
-                    System.out.println("ERROR: Invalid input option. Select a number between 1 and 6.");
+                    System.out.println("ERROR: Invalid input option. Select a number between 1 and 5.");
                     break;
             }
         }
