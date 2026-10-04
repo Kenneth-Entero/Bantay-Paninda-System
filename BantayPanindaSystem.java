@@ -55,7 +55,7 @@ public class BantayPanindaSystem {
 
         while (isRunning) {
             System.out.println("\n============= MENU ==================");
-            System.out.println("1. Add Product");
+            System.out.println("1. Add New Product");
             System.out.println("2. Deduct Stock");
             System.out.println("3. Restock Product");
             System.out.println("4. Remove Product");
