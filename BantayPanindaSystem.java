@@ -214,7 +214,7 @@ public class BantayPanindaSystem {
                     break;
 
                 default:
-                    System.out.println("ERROR: Invalid input option. Select a number between 1 and 6.");
+                    System.out.println("ERROR: Invalid input option. Select a number from 1 to 6.");
                     break;
             }
         }
